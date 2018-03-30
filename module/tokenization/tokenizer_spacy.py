@@ -49,11 +49,11 @@ def tok_spacy(lang_model, input_path, encoding='UTF-8', batch_size=10000, num_th
     count = 0
     
     for doc in nlp.pipe(docs, batch_size=batch_size, n_threads=num_thread):
-        # show index
-        if count%50000 == 0:
+        # show progress
+        if count%50000 == 0 or count == num_doc-1:
             print(count, '/', num_doc, 'have been processed')
         count += 1
-        # process
+        # processing
         docs_tok.append(' '.join([w.text.strip() for w in doc if w.text.strip() != '']))
     
     return docs_tok
@@ -74,6 +74,7 @@ if __name__ == "__main__":
     # tokenize input file
     docs_tok = tok_spacy(lang_model, args.input, args.encoding, args.batch, args.thread)
 
+    # write to output
     with open(args.output, 'w') as f:
         f.write('\n'.join(docs_tok))
         f.write('\n')
