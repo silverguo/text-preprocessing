@@ -41,7 +41,7 @@ def tok_spacy(lang_model, input_path, encoding='UTF-8', batch_size=10000, num_th
     docs = []
     with open(input_path, 'r', encoding=encoding) as f:
         for line in f:
-            docs.append(line.strip('\n'))
+            docs.append(line.strip())
 
     # stats
     docs_tok = []
