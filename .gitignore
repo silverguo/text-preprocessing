@@ -1,5 +1,6 @@
 .DS_Store
 data
+model
 .ipynb_checkpoints
 .vscode
 

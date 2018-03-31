@@ -1,0 +1,4 @@
+# language identification
+
+- langid
+- fasttext
