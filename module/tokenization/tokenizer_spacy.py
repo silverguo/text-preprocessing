@@ -1,4 +1,4 @@
-# created by Yuhan
+# created by yuhan
 
 import spacy
 import argparse
